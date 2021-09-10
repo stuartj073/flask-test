@@ -1,41 +1,31 @@
 {% extends "base.html" %}
 {% block content %}
-    <h2>About Page</h2>
+
+    
+
+    <h2>{{ page_title }}</h2>
     <p>
         Thorin and Company were a group of thirteen Dwarves, the Wizard Gandalf, and the Hobbit Bilbo Baggins, led by
         Thorin Oakenshield in TA 2941. Their purpose was to regain the lost Dwarven kingdom of the Lonely Mountain from
         the dragon Smaug.
     </p>
-    <div class="row featurette">
-        <div class="col-md-7">
-            <h3>
-                Thorin Oakenshield
-            </h3>
-            <p>
-                Thorin and Company were a group of thirteen Dwarves, the Wizard Gandalf, and the Hobbit Bilbo Baggins, led by
-                Thorin Oakenshield in TA 2941. Their purpose was to regain the lost Dwarven kingdom of the Lonely Mountain from
-                the dragon Smaug.
-            </p>
-        </div>
-        <div class="col-md-5">
-           <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fmeandrichard.wordpress.com%2F2012%2F07%2F07%2Fthe-pleasures-of-armitage-thorin-beardy-kiss-fantasy%2F&psig=AOvVaw2t9o9wgFFEsI4ZIv_OOh8a&ust=1631370647384000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCMja_7HP9PICFQAAAAAdAAAAABAD" alt="Thorin"> 
-        </div>
-    </div>
 
-    <div class="row featurette">
-        <div class="col-md-5">
-            <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fmeandrichard.wordpress.com%2F2012%2F07%2F07%2Fthe-pleasures-of-armitage-thorin-beardy-kiss-fantasy%2F&psig=AOvVaw2t9o9wgFFEsI4ZIv_OOh8a&ust=1631370647384000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCMja_7HP9PICFQAAAAAdAAAAABAD" alt="Feely"> 
-         </div>
-        <div class="col-md-7">
-            <h3>
-                Feely
-            </h3>
-            <p>
-                Thorin and Company were a group of thirteen Dwarves, the Wizard Gandalf, and the Hobbit Bilbo Baggins, led by
-                Thorin Oakenshield in TA 2941. Their purpose was to regain the lost Dwarven kingdom of the Lonely Mountain from
-                the dragon Smaug.
-            </p>
+    {% for member in company %}
+
+    
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h3>{{ member.name }} </h3>
+                <p> {{ member.description }}</p>
+            </div>
+            <div class="col-md-5">
+                <img src="{{ member.image_source }}" alt="Thorin" class="featurette-image image-responsive"> 
+            </div>
         </div>
-    </div>
+
+        <hr class="featurette-divider">
+
+    {% endfor %}
+
 {% endblock %}
     
